@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Визначення мови</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Визначення мови</h1>
+    <button id="changeButton" onclick="changeLanguage()">Змінити мову</button>
+    <p id="result"></p>
+
+    <script>
+        let lang = prompt("Введіть код мови (ua, en, pl, de):").trim().toLowerCase();
+        displayResult();
+
+        function changeLanguage() {
+            lang = prompt("Введіть код мови (ua, en, pl, de):").trim().toLowerCase();
+            displayResult();
+        }
+
+        function displayResult() {
+            let message;
+
+            if (lang === "ua") {
+                message = "Ваша мова: Українська";
+            } else if (lang === "en") {
+                message = "Ваша мова: Англійська";
+            } else if (lang === "pl") {
+                message = "Ваша мова: Польська";
+            } else if (lang === "de") {
+                message = "Ваша мова: Німецька";
+            } else {
+                message = "Мову невизначено"; // Обробка випадку невірного значення
+            }
+
+            document.getElementById('result').innerText = message;
+        }
+
+        if (!lang) {
+            document.getElementById('result').innerText = "Мову невизначено";
+        } else {
+            document.getElementById('changeButton').style.display = "inline"; // Показати кнопку змінити мову
+        }
+    </script>
+</body>
+</html>
